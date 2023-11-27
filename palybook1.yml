@@ -1,0 +1,15 @@
+- name: Hello webserver
+  hosts: web-server
+  tasks:
+    - copy: src=/etc/passwd
+            dest=/tmp/
+            owner=ubuntu
+            group=ubuntu
+            mode=777
+
+- name: Hello database
+  hosts: database
+  tasks:
+    - name: In this task we are creating ansible directory for database module
+      file: path=/tmp/hello
+            state=directory
